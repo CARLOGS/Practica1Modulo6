@@ -28,4 +28,8 @@
     <string name="dialog_date_select">Seleccionar</string>
     <string name="dialog_type_label">Tipo</string>
     <string name="dialog_date_label">Fecha descubrimiento</string>
+    <string name="element_name">Nombre del objeto celeste</string>
+    <string name="element_discoverer">Descubridor</string>
+    <string name="element_astro_date">Fecha</string>
+    <string name="element_astro_type">Tipo de objeto</string>
 </resources>

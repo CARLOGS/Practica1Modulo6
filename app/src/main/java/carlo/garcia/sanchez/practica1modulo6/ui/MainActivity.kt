@@ -41,13 +41,21 @@ class MainActivity : AppCompatActivity() {
         // Inicia y crea DB
         respository = (application as AstronomyDBApp).repository
 
-        // Instancia el GameAdapter
-        astronomyAdapter = AstronomyAdapter { selectedGame ->
+        // Instancia el AtronomyAdapter
+        astronomyAdapter = AstronomyAdapter { selectedAtroObject ->
+            val dialog = AstronomyDialog(
+                newAstroObject = false,
+                astroObject = selectedAtroObject,
+                updateUI = {updateUI()},
+                message = {message(it)}
+            )
+
+            dialog.show(supportFragmentManager, "dlgAtroUpdate")
         }
 
         binding.apply {
-            lstGames.layoutManager = LinearLayoutManager(this@MainActivity)
-            lstGames.adapter = astronomyAdapter
+            lstAtroObjects.layoutManager = LinearLayoutManager(this@MainActivity)
+            lstAtroObjects.adapter = astronomyAdapter
         }
 
         // Actualiza lista
@@ -58,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateUI() {
         lifecycleScope.launch {
             // Recupera los datos de la base de datos
-            astroObjects = respository.getAllGames()
+            astroObjects = respository.getAllAtroObjects()
 
             // para que se ejecute en el Thread principal
             binding.lblSinRegistros.visibility = if (astroObjects.isEmpty()) View.VISIBLE else View.INVISIBLE

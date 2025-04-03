@@ -7,6 +7,9 @@ import android.app.Dialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.DatePicker
@@ -17,9 +20,11 @@ import carlo.garcia.sanchez.practica1modulo6.application.AstronomyDBApp
 import carlo.garcia.sanchez.practica1modulo6.data.AstronomyRepository
 import carlo.garcia.sanchez.practica1modulo6.data.db.model.AstronomyEntity
 import carlo.garcia.sanchez.practica1modulo6.databinding.DialogAstronomyBinding
+import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 
@@ -47,6 +52,7 @@ class AstronomyDialog(
     private val binding get() = _binding!!
     private lateinit var dialog: Dialog
     private val calendario: Calendar = Calendar.getInstance()
+    private var initPos: Int = 0
 
     // NOTA: Truco para acceder al boton de guardar
     private var saveButton: Button? = null
@@ -63,8 +69,34 @@ class AstronomyDialog(
         // Inicia DatePicker
         initDatePicker()
 
+        // Actualiza saveButton al cambiar la fecha
         binding.btnDate.setOnClickListener {
             mostrarDatePicker()
+            saveButton?.isEnabled = validateFields()
+        }
+
+        // Actualiza saveButton al cambiar el tipo de objecto
+        binding.cmbAstroType.onItemSelectedListener = object: OnItemSelectedListener, AdapterView.OnItemSelectedListener {
+            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if ( position != astroObject.type )
+                    saveButton?.isEnabled = validateFields()
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
+
+        // Llena los campos con loos datos recibidos
+        binding.apply {
+            txtAstroName.setText(astroObject.name)
+            cmbAstroType.setSelection(astroObject.type)
+            lblDate.setText(getDateStr(astroObject.date))
+            txtDiscoverer.setText(astroObject.discoverer_name)
         }
 
         dialog = if (newAstroObject) {
@@ -73,16 +105,16 @@ class AstronomyDialog(
                 getString(R.string.dialog_save),
                 getString(R.string.dialog_cancel),
                 {
-                    astroObject.name = binding.tietTitle.text.toString()
-                    astroObject.type = binding.cmbType.selectedItemPosition
+                    astroObject.name = binding.txtAstroName.text.toString()
+                    astroObject.type = binding.cmbAstroType.selectedItemPosition
                     astroObject.date = getSelectedDate()
-                    astroObject.discoverer_name = binding.tietDeveloper.text.toString()
+                    astroObject.discoverer_name = binding.txtDiscoverer.text.toString()
 
                     try {
                         lifecycleScope.launch {
                             // Ejecuta asyncronamente la inserción
                             val result = async {
-                                repository.insertGame(astroObject)
+                                repository.insertAstrObject(astroObject)
                             }
                             result.await()
 
@@ -105,16 +137,16 @@ class AstronomyDialog(
                 getString(R.string.dialog_update),
                 getString(R.string.dialog_delete),
                 {
-                    astroObject.name = binding.tietTitle.text.toString()
-                    astroObject.type = binding.cmbType.selectedItemPosition
+                    astroObject.name = binding.txtAstroName.text.toString()
+                    astroObject.type = binding.cmbAstroType.selectedItemPosition
                     astroObject.date = getSelectedDate()
-                    astroObject.discoverer_name = binding.tietDeveloper.text.toString()
+                    astroObject.discoverer_name = binding.txtDiscoverer.text.toString()
 
                     try {
                         lifecycleScope.launch {
                             // Ejecuta asyncronamente la actualización
                             val result = async {
-                                repository.updateGame(astroObject)
+                                repository.updateAstroObject(astroObject)
                             }
                             result.await()
 
@@ -140,7 +172,7 @@ class AstronomyDialog(
                                 lifecycleScope.launch {
                                     // Ejecuta asyncronamente la eliminación
                                     val result = async {
-                                        repository.deleteGame(astroObject)
+                                        repository.deleteAstroObject(astroObject)
                                     }
                                     result.await()
 
@@ -164,6 +196,10 @@ class AstronomyDialog(
         }
 
         return dialog
+    }
+
+    private fun getDateStr(date: Date): String {
+        return SimpleDateFormat("d/M/yyyy").format(date)
     }
 
     private fun getSelectedDate(): Date {
@@ -223,7 +259,7 @@ class AstronomyDialog(
         // Definir el layout para el dropdown
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         // Asignar el adapter al spinner
-        binding.cmbType.adapter = adapter
+        binding.cmbAstroType.adapter = adapter
     }
 
     override fun onDestroy() {
@@ -245,17 +281,15 @@ class AstronomyDialog(
 
         binding.apply {
             setupTextWatcher(
-                tietTitle,
-                tietTitle,
-                tietDeveloper
+                txtAstroName,
+                txtDiscoverer
             )
         }
     }
 
     private fun validateFields(): Boolean =
-        binding.tietTitle.text.toString().isNotEmpty()
-                && binding.tietTitle.text.toString().isNotEmpty()
-                && binding.tietDeveloper.text.toString().isNotEmpty()
+        binding.txtAstroName.text.toString().isNotEmpty()
+                && binding.txtDiscoverer.text.toString().isNotEmpty()
 
     private fun setupTextWatcher(vararg textFields: TextInputEditText){
         val textWatcher = object: TextWatcher{

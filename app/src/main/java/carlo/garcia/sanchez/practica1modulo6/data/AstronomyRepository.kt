@@ -11,15 +11,15 @@ import carlo.garcia.sanchez.practica1modulo6.data.db.model.AstronomyEntity
 
 class AstronomyRepository ( private val astronomyDao: AstronomyDao ) {
 
-    suspend fun getAllGames(): MutableList<AstronomyEntity> = astronomyDao.getAllAstroObjects()
+    suspend fun getAllAtroObjects(): MutableList<AstronomyEntity> = astronomyDao.getAllAstroObjects()
 
-    suspend fun insertGame(game: AstronomyEntity) {
+    suspend fun insertAstrObject(game: AstronomyEntity) {
         astronomyDao.insertAstroObject(game)
     }
-    suspend fun updateGame(game: AstronomyEntity) {
+    suspend fun updateAstroObject(game: AstronomyEntity) {
         astronomyDao.updateAstroObject(game)
     }
-    suspend fun deleteGame(game: AstronomyEntity) {
+    suspend fun deleteAstroObject(game: AstronomyEntity) {
         astronomyDao.deleteAstroObject(game)
     }
 }

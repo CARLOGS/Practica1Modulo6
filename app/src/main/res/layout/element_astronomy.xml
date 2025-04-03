@@ -19,12 +19,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@color/black"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/black">
 
             <ImageView
-                android:id="@+id/imgIcon"
+                android:id="@+id/imgAstro"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
                 android:layout_margin="8dp"
@@ -37,53 +37,68 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/lblTitle"
+                android:id="@+id/lblAstroName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:textColor="#FF0000"
+                android:textColor="#FF1274BB"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imgIcon"
+                app:layout_constraintStart_toEndOf="@+id/imgAstro"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.16"
-                tools:text="Título del juego" />
+                tools:text="@string/element_name" />
+
 
             <TextView
-                android:id="@+id/lblGenre"
-                android:layout_width="0dp"
+                android:id="@+id/lblAstroType"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:textSize="14sp"
                 android:textColor="@color/white"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@id/imgIcon"
-                app:layout_constraintTop_toBottomOf="@id/lblTitle"
+                app:layout_constraintStart_toEndOf="@id/imgAstro"
+                app:layout_constraintTop_toBottomOf="@id/lblAstroName"
                 app:layout_constraintVertical_bias="0.2"
-                tools:text="Género" />
+                tools:text="@string/element_astro_type" />
 
             <TextView
-                android:id="@+id/lblDeveloper"
+                android:id="@+id/lblAstroDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblAstroName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.2"
+                tools:text="@string/element_astro_date" />
+
+            <TextView
+                android:id="@+id/lblAstroDiscoverer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="end"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="italic"
-                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imgIcon"
-                app:layout_constraintTop_toBottomOf="@id/lblGenre"
-                tools:text="Developer" />
+                app:layout_constraintStart_toEndOf="@id/imgAstro"
+                app:layout_constraintTop_toBottomOf="@id/lblAstroDate"
+                tools:text="@string/element_discoverer" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

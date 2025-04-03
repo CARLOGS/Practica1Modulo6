@@ -34,7 +34,7 @@
         app:startIconDrawable="@drawable/star_catalog">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietTitle"
+            android:id="@+id/txtAstroName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
@@ -60,7 +60,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/dialog_type"
-        app:cardCornerRadius="15dp">
+        app:cardCornerRadius="15dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@android:color/white">
 
         <ImageView
             android:src="@drawable/bulleted"
@@ -68,10 +70,11 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:tint="#FF777777" />
 
         <Spinner
-            android:id="@+id/cmbType"
+            android:id="@+id/cmbAstroType"
             android:layout_marginStart="50dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
@@ -104,7 +107,8 @@
             android:layout_marginTop="25dp"
             android:layout_marginBottom="15dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:tint="#FF777777" />
 
         <TextView
             android:id="@+id/lblDate"
@@ -146,7 +150,7 @@
         app:startIconDrawable="@drawable/person">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietDeveloper"
+            android:id="@+id/txtDiscoverer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"

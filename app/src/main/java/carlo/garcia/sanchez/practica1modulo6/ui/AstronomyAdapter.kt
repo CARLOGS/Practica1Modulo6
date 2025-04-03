@@ -6,6 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import carlo.garcia.sanchez.practica1modulo6.data.db.model.AstronomyEntity
 import carlo.garcia.sanchez.practica1modulo6.databinding.ElementAstronomyBinding
 
+/**
+ * @author Carlo García Sánchez
+ *
+ * Adaptador para asociar los datos y responde la click
+ */
+
 class AstronomyAdapter(
     private val onAtroClicked: (AstronomyEntity) -> Unit
 ): RecyclerView.Adapter<AstronomyViewHolder>() {
@@ -17,11 +23,11 @@ class AstronomyAdapter(
     }
 
     override fun onBindViewHolder( holder: AstronomyViewHolder, position: Int ) {
-        val game = astroObjects[position]
-        holder.bind(game)
+        val astroObject = astroObjects[position]
+        holder.bind(astroObject)
         holder.itemView.setOnClickListener {
-            // Click on game
-            onAtroClicked(game)
+            // Click on Astro Object
+            onAtroClicked(astroObject)
         }
     }
 
