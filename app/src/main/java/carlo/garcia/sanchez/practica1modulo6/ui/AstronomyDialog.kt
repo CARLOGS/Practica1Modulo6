@@ -130,9 +130,10 @@ class AstronomyDialog(
             )
         } else {
             // Actualiza objeto
-            buildDialog(
+            buildDialogUpdateDelete(
                 getString(R.string.dialog_update),
                 getString(R.string.dialog_delete),
+                getString(R.string.dialog_cancel),
                 {
                     astroObject.name = binding.txtAstroName.text.toString()
                     astroObject.type = binding.cmbAstroType.selectedItemPosition
@@ -188,6 +189,9 @@ class AstronomyDialog(
                         }
                         .create()
                         .show()
+                },
+                {
+                    dismiss()
                 }
             )
         }
@@ -315,6 +319,27 @@ class AstronomyDialog(
             }
             .setNegativeButton(btn2Text) { _, _ ->
                 negativeButton()
+            }
+            .create()
+
+    private fun buildDialogUpdateDelete(
+        btn1Text: String,
+        btn2Text: String,
+        btn3Text: String,
+        positiveButton: () -> Unit,
+        negativeButton: () -> Unit,
+        neitralButton: () -> Unit
+    ) : Dialog =
+        AlertDialog.Builder(requireContext()).setView(binding.root)
+            .setTitle(getString(R.string.dialog_title))
+            .setPositiveButton(btn1Text) {_, _ ->
+                positiveButton()
+            }
+            .setNegativeButton(btn2Text) { _, _ ->
+                negativeButton()
+            }
+            .setNeutralButton(btn3Text) { _, _ ->
+                neitralButton()
             }
             .create()
 }
