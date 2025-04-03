@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/tilGenre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,9 +60,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/dialog_type"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="2dp"
-        app:cardBackgroundColor="@android:color/white">
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="15dp">
 
         <ImageView
             android:src="@drawable/bulleted"
@@ -82,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:text="@string/dialog_date_label"
@@ -90,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/tilGenre2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -99,6 +98,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/dialog_type"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="15dp">
 
         <ImageView
@@ -130,7 +130,7 @@
             android:layout_height="wrap_content"
             android:text="@string/dialog_date_select"/>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtDeveloper"
