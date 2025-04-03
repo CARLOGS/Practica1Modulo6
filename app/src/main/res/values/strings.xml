@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Practica1Modulo6</string>
+    <string name="main_empty">¡No hay datos!</string>
+    <string name="main_add_object">Agregrar objeto celeste</string>
+    <string name="splash_image">Splash image</string>
+    <string name="splash_loading">Cargando …</string>
+    <string name="element_imagen">Imagen</string>
+    <string name="dialog_name">Nombre del astro</string>
+    <string name="dialog_header_image">Header image</string>
+    <string name="dialog_discoverer">Descubridor</string>
+    <string name="dialog_date">Fecha decubrimiento</string>
+    <string name="dialog_type">Tipo de astro</string>
 </resources>

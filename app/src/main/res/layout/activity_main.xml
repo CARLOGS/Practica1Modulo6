@@ -5,22 +5,23 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEEEEE"
+    android:background="#FF000000"
     android:fitsSystemWindows="true"
     tools:context=".ui.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvGames"
+        android:id="@+id/lstGames"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical|center_horizontal" />
 
     <TextView
-        android:id="@+id/tvSinRegistros"
+        android:id="@+id/lblSinRegistros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:text="¡No hay datos!"
+        android:text="@string/main_empty"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:visibility="invisible" />
 
@@ -32,7 +33,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="#3657B1"
         android:clickable="true"
-        android:contentDescription="Agregrar objeto celeste"
+        android:contentDescription="@string/main_add_object"
         android:focusable="true"
         android:onClick="click"
         app:srcCompat="@drawable/baseline_add_circle_24"
