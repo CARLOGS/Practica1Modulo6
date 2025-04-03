@@ -52,7 +52,6 @@ class AstronomyDialog(
     private val binding get() = _binding!!
     private lateinit var dialog: Dialog
     private val calendario: Calendar = Calendar.getInstance()
-    private var initPos: Int = 0
 
     // NOTA: Truco para acceder al boton de guardar
     private var saveButton: Button? = null
@@ -78,7 +77,7 @@ class AstronomyDialog(
         // Actualiza saveButton al cambiar el tipo de objecto
         binding.cmbAstroType.onItemSelectedListener = object: OnItemSelectedListener, AdapterView.OnItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                TODO("Not yet implemented")
+                return true
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -86,9 +85,7 @@ class AstronomyDialog(
                     saveButton?.isEnabled = validateFields()
             }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
 
         // Llena los campos con loos datos recibidos
