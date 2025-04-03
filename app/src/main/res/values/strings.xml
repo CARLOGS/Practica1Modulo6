@@ -10,4 +10,22 @@
     <string name="dialog_discoverer">Descubridor</string>
     <string name="dialog_date">Fecha decubrimiento</string>
     <string name="dialog_type">Tipo de astro</string>
+    <string name="dialog_title">Objeto astronómico</string>
+    <string name="dialog_delete_confirmation">¿Seguro que deseas eliminar el objeto %1$s?</string>
+    <string name="dialog_delete_object">Objeto eliminado</string>
+    <string name="dialog_save">Guardar</string>
+    <string name="dialog_cancel">Cancelar</string>
+    <string name="dialog_object_saved">Objeto guardado</string>
+    <string name="dialog_save_error">Error al guardar el objeto</string>
+    <string name="dialog_update">Actualizar</string>
+    <string name="dialog_delete">Borrar</string>
+    <string name="dialog_updated">Objeto actualizado</string>
+    <string name="dialog_update_error">Error al actualizar el objeto</string>
+    <string name="dialog_delete_title">Confirmación</string>
+    <string name="dialog_delete_button">Aceptar</string>
+    <string name="dialog_delete_error">Error al eliminar el objeto</string>
+    <string name="dialog_1_1_2000">1/1/2000</string>
+    <string name="dialog_date_select">Seleccionar</string>
+    <string name="dialog_type_label">Tipo</string>
+    <string name="dialog_date_label">Fecha descubrimiento</string>
 </resources>

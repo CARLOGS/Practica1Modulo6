@@ -1,5 +1,7 @@
 package carlo.garcia.sanchez.practica1modulo6.ui
 
+import android.R
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +11,7 @@ import carlo.garcia.sanchez.practica1modulo6.application.AstronomyDBApp
 import carlo.garcia.sanchez.practica1modulo6.data.AstronomyRepository
 import carlo.garcia.sanchez.practica1modulo6.data.db.model.AstronomyEntity
 import carlo.garcia.sanchez.practica1modulo6.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 /**
@@ -65,7 +68,16 @@ class MainActivity : AppCompatActivity() {
 
     // Es otra forma de hacer algo en el click del boton en el layout hay onClick="click"
     fun click(view: View) {
-//        val dialog = AstronomyDialog(updateUI = {updateUI()}, message = {message(it)})
-//        dialog.show(supportFragmentManager, "dlgAstronomy")
+        val dialog = AstronomyDialog(updateUI = {updateUI()}, message = {message(it)})
+        dialog.show(supportFragmentManager, "dlgAstronomy")
+    }
+
+    private fun message(text: String) {
+        // Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+        Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT)
+            .setTextColor(getColor(R.color.white))
+            // .setBackgroundTint(getColor(R.color.holo_red_dark)) // #9E1734
+            .setBackgroundTint(Color.parseColor("#3657B1")) // #9E1734
+            .show()
     }
 }

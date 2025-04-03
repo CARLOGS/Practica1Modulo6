@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="astro_types">
+        <item>Estrella</item>
+        <item>Galaxia</item>
+        <item>Nebulosa</item>
+        <item>Asteroide</item>
+        <item>Cometa</item>
+        <item>Planeta</item>
+        <item>Luna</item>
+        <item>Estrella de neutrones</item>
+        <item>Agujero negro</item>
+        <item>Quasar</item>
+    </string-array>
+</resources>

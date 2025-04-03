@@ -2,9 +2,9 @@ package carlo.garcia.sanchez.practica1modulo6.ui
 
 import androidx.recyclerview.widget.RecyclerView
 import carlo.garcia.sanchez.practica1modulo6.data.db.model.AstronomyEntity
-import carlo.garcia.sanchez.practica1modulo6.databinding.AstronomyElementBinding
+import carlo.garcia.sanchez.practica1modulo6.databinding.ElementAstronomyBinding
 
-class AstronomyViewHolder( private val binding: AstronomyElementBinding ): RecyclerView.ViewHolder( binding.root ) {
+class AstronomyViewHolder( private val binding: ElementAstronomyBinding ): RecyclerView.ViewHolder( binding.root ) {
 
     // Codigo del ViewHolder
     fun bind(astro: AstronomyEntity) {
