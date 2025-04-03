@@ -60,7 +60,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/dialog_type"
-        app:cardBackgroundColor="@color/white"
+        app:strokeWidth="1dp"
+        app:strokeColor="#FF777777"
+        app:cardBackgroundColor="@android:color/transparent"
         app:cardCornerRadius="15dp">
 
         <ImageView
@@ -98,7 +100,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/dialog_type"
-        app:cardBackgroundColor="@color/white"
+        app:strokeWidth="1dp"
+        app:strokeColor="#FF777777"
+        app:cardBackgroundColor="@android:color/transparent"
         app:cardCornerRadius="15dp">
 
         <ImageView
