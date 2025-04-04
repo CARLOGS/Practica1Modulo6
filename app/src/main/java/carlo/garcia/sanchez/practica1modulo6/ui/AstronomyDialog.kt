@@ -71,7 +71,6 @@ class AstronomyDialog(
         // Actualiza saveButton al cambiar la fecha
         binding.btnDate.setOnClickListener {
             mostrarDatePicker()
-            saveButton?.isEnabled = validateFields()
         }
 
         // Actualiza saveButton al cambiar el tipo de objecto
@@ -238,6 +237,10 @@ class AstronomyDialog(
                 override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
                     val fechaSeleccionada = dayOfMonth.toString() + "/" + (month + 1) + "/" + year
                     binding.lblDate.setText(fechaSeleccionada)
+
+                    // Valida cambio de fecha y actualizar el botón saveButton
+                    if ( !getDateStr(astroObject.date).equals(fechaSeleccionada) )
+                        saveButton?.isEnabled = validateFields()
                 }
             },
             year, month, day
