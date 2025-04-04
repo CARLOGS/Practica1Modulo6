@@ -126,6 +126,8 @@
 
         <Button
             android:id="@+id/btnDate"
+            android:textColor="@color/white"
+            app:backgroundTint="#FF1274BB"
             android:layout_marginStart="150dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
